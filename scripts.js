@@ -179,13 +179,13 @@ function loginUser(event) {
 //....................Add categories to local storage...........................
 
 function createCategories() {
-  const categories = ["Sports", "Geography", "Programming", "Current Affairs"];
+  const categories = ["Sports", "Geography", "Programming", "Current Affairs","Image Queries"];
   localStorage.setItem("categories", JSON.stringify(categories));
 }
 
 //.............................................................................
 document.querySelector("#quizStart").style.display = "none";
-document.querySelector(".logout").style.display = "none";
+// document.querySelector(".logout").style.display = "none";
 function quizStart(e, catArr) {
   //add click event on options
   optionsDiv.forEach((para) => {
@@ -272,16 +272,17 @@ function storeUserAnswer(event, userAnswers) {
 }
 
 //.............................................................................
-
+let score = 0;
 //calculate user answers
 function calculateScore(userAnswers, actualAnswers) {
-  let score = 0;
   userAnswers.forEach((ua, index) => {
     if (String(ua) === String(actualAnswers[index].a)) {
       score++;
     }
+   
   });
   let answer = "You scored " + score + " out of " + actualAnswers.length;
+  previous()
 
   //add logout button in calculate score ...........
   let logout2 = document.createElement("button");
@@ -310,3 +311,15 @@ function removeImages() {
     if (option.children.length > 0) option.children[0].remove();
   });
 }
+let btn=document.createElement("button")
+let answerstore=document.createElement("p")
+
+btn.addEventListener("click",()=>{
+function previous(store){
+  const arr=
+ arr.push(score)
+//  console.log(score)
+//  console.log(arr)
+  
+}
+});
